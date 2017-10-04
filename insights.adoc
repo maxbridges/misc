@@ -1,0 +1,109 @@
+= An Introduction to IBM DevOps Insights
+Max Bridges <mdbridge@us.ibm.com>
+
+IBM DevOps Insights is a web application that can help you improve your software development process. Use it to:
+
+* automate quality control throughout your development cycle
+* audit your codebase for risk 
+* improve your team's collaboration patterns
+* shorten deployment times  
+
+IBM offers DevOps Insights through our Bluemix platform. You don't need to move your project to Bluemix to use DevOps Insights, though. It's compatible with GitHub, JIRA, Jenkins, and UrbanCode Deploy, as well as IBM's Git repository, issue tracking, and continuous delivery services. If you're using any of those technologies, you can take advantage of DevOps Insights.
+
+== Capabilities
+
+DevOps Insights is a single service, but you can think of it as two complementary sets of capabilities. 
+
+=== Automated quality control
+
+If your project uses Jenkins or IBM Continous Delivery, DevOps Insights can help you prevent untested or buggy code from being deployed. You can add _gates_ to your delivery pipeline that automatically check performance on unit tests, functional tests, test coverage, and other criteria. Gates can prevent a build from being promoted, as well as send notifications to your dev team. 
+
+(vis - pipeline with test/staging and prod environments)
+
+For example, you could add a gate before a production deployment task that checks builds for a certain level of test coverage. Every time a build is kicked off, it's promoted through the pipeline and evaluated by DevOps Insights at the gate. If a build isn't sufficiently covered by tests, it won't be promoted to production. 
+
+With gates, you can empower developers to commit changes and have them in production in minutes--as long as they meet the criteria that you set.
+
+=== Development lifecycle data analysis
+
+DevOps Insights analyzes your pipelines, Git repositories, and issue tracking systems to recommend methods and tools that can improve how you work. 
+
+== Integrating DevOps Insights with your project 
+
+(There's a lot going on here. Just looking at data means plugging in some details in Bluemix. Jenkins and UCD require plugins (check). AQC means updating Jenkins or CD pipelines.)
+
+(Also, add to toolchain.)
+
+=== Configuring a Git repo to report to Insights
+
+* Get labels in line if GitHub
+* Make sure repo integration is in toolchain
+
+=== Configuring issue tracking to report to Insights
+
+* Get labels in line if GitHub
+* Make sure repo integration is in toolchain
+
+=== Configuring CD pipelines or Jenkins to report to Insights
+
+You can configure Continuous Delivery or Jenkins pipelines to send build and test results to DevOps Insights. This data is aggregated, analyzed, and displayed on DevOps Insights' dashboards. 
+
+You can also configure pipelines to use DevOps Insights for automated quality control. At points that you specify in your continuous integration or continuous delivery processes, you can add gates that block promotion of builds that don't meet your test standards. This is covered in another section. (Link)
+
+==== Configuring CD pipelines
+
+* Set (export) env variables
+   ** Depends on job type
+* Publish results as wanted
+   ** Use idra3 or advanced tester (deprecated?)
+   ** Wide but not unlimited test result format support
+   ** Commands can vary depending on build system or test runner
+
+==== Configuring Jenkins
+
+* Set (export) env variables
+* Auth considerations
+* Publish results as wanted
+   ** Wide but not unlimited test result format support
+   ** Commands can vary depending on build system or test runner
+
+=== Configuring Delivery Insights to report to Insights
+
+(Need Delivery Insights writers and/or SMEs for this one.)
+
+== Using DevOps Insights
+
+=== (Code and Developer Insights)
+
+To look at code and team stuff... well, it's a web dashboard. 
+
+=== (Delivery Insights)
+
+To look at UCD stuff... well, it's a web dashboard. 
+
+=== (Oh my DRA)
+
+To look at deployment stuff (Jenkins + pipeline)... web dashboard. 
+
+Hey, how 'bout breaking this out into observation vs. quality control?
+
+vvv
+
+=== (DRA pt. 2)
+
+Define gates for ACQ.
+
+If pipeline:
+
+* Use test job in UI
+* Use idra3
+
+If Jenkins:
+
+* Use gate PBA in plugin
+
+== Where next? (gates, more toolchain stuff)
+
+You can look at doing more with toolchains--there are a lot of other services (Slack, PagerDuty, etc.)
+
+You can use Insights' recs with the Garage Method to learn about best practices in modern software development. 
